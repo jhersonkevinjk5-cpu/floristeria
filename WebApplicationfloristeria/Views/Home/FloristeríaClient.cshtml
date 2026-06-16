@@ -1,0 +1,210 @@
+﻿@model IEnumerable<WebApplicationfloristeria.Models.Producto>
+
+
+@{
+    ViewBag.Title = "FloristeríaClient";
+    Layout = "~/Views/Shared/_Layout - Client.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "Floristería";
+}
+<link href="~/Contenido/CSS/normalize.css" rel="stylesheet" />
+<link href="~/Contenido/CSS/site_Clients.css" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/283335a286.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/283335a286.js" crossorigin="anonymous"></script>
+@*
+    <------------------------------------------------------------------------------
+                                    nosotros
+     ------------------------------------------------------------------------------/>
+*@
+<div class="contenedor-nosotros contenedor">
+    <div class="texto-nosotros">
+        <p class="bienvenida">Bienvenido a!</p>
+        <h1>Floristeria Pérez</h1>
+        <p>
+            Somos más que una florería; somos un taller de sueños donde cada pétalo es tejido a mano y cada ramo
+            cuenta una historia. En Floristería Pérez, hemos reinventado el concepto de las flores, combinando la
+            delicadeza de los diseños florales con la maestría del arte artesanal para ofrecerte arreglos que no
+            solo decoran tus espacios, sino que perduran como un recuerdo imborrable.
+        </p>
+        <a href="#" class="btn btn-negro">Contactar</a>
+    </div>
+
+    <div class="imagenes-nosotros">
+        <div class="imagen1">
+            <video autoplay loop muted>
+                <source src="~/Contenido/Multimedia/Video/arreglo-floral.mp4" alt="arreglo de flores">
+            </video>
+
+        </div>
+        <div class="imagenes2">
+            <img data-src="@Url.Content("~/Contenido/Multimedia/IMG/gardenias.png")" alt="gardenias ">
+            <img data-src="@Url.Content("~/Contenido/Multimedia/IMG/tulipanes.png")" alt="tulipanes">
+        </div>
+    </div>
+</div>
+
+@*
+    <------------------------------------------------------------------------------
+                                    menu contenedor
+     ------------------------------------------------------------------------------/>
+*@
+<section class="menu contenedor">
+    <h2 class="texto-productos">Nuestros Arreglos Florales</h2>
+    <br />
+    <div class="botones-productos">
+
+        <button class="filtro btn btn-rosa"
+                data-categoria="todos">
+
+            Todos
+
+        </button>
+
+        @foreach (var categoria in ViewBag.Categorias)
+        {
+            <button class="filtro btn btn-blanco"
+                    data-categoria="@categoria.IdCategoria">
+
+                @categoria.NombreCategoria
+
+            </button>
+        }
+
+    </div>
+
+    <div class="productos">
+
+        @foreach (var item in Model)
+        {
+            <div class="producto" data-categoria="@item.Categoria.IdCategoria">
+                    @if (!string.IsNullOrEmpty(item.Imagen))
+                    {
+                        <img data-src="@Url.Content(item.Imagen)" alt="@item.Categoria" width="100%" height="350px" />
+                    }
+                    <br />
+                    <h2>@item.NombreProducto</h2>
+                    <h4>@item.Precio</h4>
+                    <p>@item.Descripcion</p>
+                    <div class="pedido">
+                        <p>Agregar pedido</p>
+                        <button><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+
+                }
+            </div>
+            <br />
+</section>
+@*
+    <------------------------------------------------------------------------------
+                                    separador
+     ------------------------------------------------------------------------------/>
+*@
+<div class="separador">
+    <div class="contenido-separador contenedor">
+        <h2>Floristería Pérez:</h2>
+        <p>
+            Para esos sentimientos que no caben en palabras, <span class="verde">creamos arreglos personalizados</span> que hablan desde el corazón.
+            <span class="verde">Sorprende hoy mismo</span> y envía una emoción que perdure.
+        </p>
+        <a href="#" class="btn btn-blanco">Realiza tu pedido.</a>
+    </div>
+</div>
+@*
+    <------------------------------------------------------------------------------
+                    Artistas Florales y Creadores de Emociones
+     ------------------------------------------------------------------------------/>
+*@
+
+<section class="florista contenedor">
+    <br />
+    <br />
+    <h2>Artistas Florales y Creadores de Emociones</h2>
+    <br />
+    <div class="contenido-florista">
+        <div class="texto-florista">
+            <br />
+            <h3>
+                La belleza está en la historia que cada flor cuenta; mi misión es interpretar tus sentimientos y
+                transformarlos en un diseño floral inolvidable.
+            </h3>
+            <br />
+            <p>
+                Soy florista con más de 10 años de experiencia creando arte que celebra
+                la vida en todas sus formas. Mi taller es un santuario donde la naturaleza, la creatividad y tu
+                historia personal convergen. Desde la selección de flores frescas y de temporada hasta el último
+                lazo del ramo, cada detalle está imbuido de intención y pasión.
+
+                Especializado en diseño floral para bodas con encanto, eventos corporativos de alto impacto y
+                arreglos florales personalizados que transmiten mensajes únicos. Entiendo que no solo buscas flores,
+                sino una experiencia memorable y un servicio que supere tus expectativas aquí en Lima - Perú.
+            </p>
+            <a href="#" class="btn btn-negro">Leer Bíografia</a>
+        </div>
+        <div class="video-florista">
+            <video autoplay loop muted>
+                <source src="~/Contenido/Multimedia/Video/florista.mp4" alt="fotografia florista">
+            </video>
+        </div>
+    </div>
+</section>
+@*
+    <------------------------------------------------------------------------------
+                                    formulario
+     ------------------------------------------------------------------------------/>
+*@
+
+<div class="formulario-contacto contenedor">
+
+    <div class="informacion-contacto">
+        <h3>Contactanos</h3>
+        <p><i class="fas fa-map-marker-alt"></i>Mercado Real plaza vitarte, Av. Nicolás Ayllón, Ate 15801</p>
+        <p><i class="fas fa-envelope"></i> ventas@floristeriaperez.com</p>
+        <p><i class="fas fa-phone-alt"></i>966651967</p>
+        <div class="redes-sociales">
+            <i class="fab fa-facebook-square"></i>
+            <i class="fab fa-twitter-square"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
+    </div>
+    <form class="formulario">
+        <div class="input-formulario">
+            <label for="nombre">Nombre</label>
+            <input type="text" placeholder="Margoth" id="nombre">
+        </div>
+        <div class="input-formulario">
+            <label for="apellidos">Apellido</label>
+            <input type="text" placeholder="Pérez" id="apellidos">
+        </div>
+        <div class="input-formulario">
+            <label for="correo">Correo</label>
+            <input type="email" placeholder="ejemplo@floreriaperez.com" id="correo">
+        </div>
+        <div class="input-formulario">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" placeholder="966651967" id="telefono">
+        </div>
+        <div class="input-formulario">
+            <label for="mensaje">Mensaje</label>
+            <textarea></textarea>
+        </div>
+        <div class="btn-formulario">
+            <input type="submit" class="btn btn-blanco" value="Enviar">
+        </div>
+
+    </form>
+</div>
+
+<script src="~/Contenido/JS/app.js"></script>
+<div class="carrito-flotante">
+    <a href="#">
+        <i class="fas fa-shopping-bag"></i>
+        <span>2</span>
+    </a>
+</div>

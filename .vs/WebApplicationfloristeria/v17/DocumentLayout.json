@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Lenovo\\Documents\\cursos de la cibertec\\EFSRT\\ProyectoVSfloristeria\\WebApplicationfloristeria\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9EC891C6-C9D8-44DE-AFB0-D972B5F82480}|WebApplicationfloristeria\\WebApplicationfloristeria.csproj|c:\\users\\lenovo\\documents\\cursos de la cibertec\\efsrt\\proyectovsfloristeria\\webapplicationfloristeria\\webapplicationfloristeria\\data\\clientedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EC891C6-C9D8-44DE-AFB0-D972B5F82480}|WebApplicationfloristeria\\WebApplicationfloristeria.csproj|solutionrelative:webapplicationfloristeria\\data\\clientedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EC891C6-C9D8-44DE-AFB0-D972B5F82480}|WebApplicationfloristeria\\WebApplicationfloristeria.csproj|c:\\users\\lenovo\\documents\\cursos de la cibertec\\efsrt\\proyectovsfloristeria\\webapplicationfloristeria\\webapplicationfloristeria\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EC891C6-C9D8-44DE-AFB0-D972B5F82480}|WebApplicationfloristeria\\WebApplicationfloristeria.csproj|solutionrelative:webapplicationfloristeria\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EC891C6-C9D8-44DE-AFB0-D972B5F82480}|WebApplicationfloristeria\\WebApplicationfloristeria.csproj|c:\\users\\lenovo\\documents\\cursos de la cibertec\\efsrt\\proyectovsfloristeria\\webapplicationfloristeria\\webapplicationfloristeria\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EC891C6-C9D8-44DE-AFB0-D972B5F82480}|WebApplicationfloristeria\\WebApplicationfloristeria.csproj|solutionrelative:webapplicationfloristeria\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EC891C6-C9D8-44DE-AFB0-D972B5F82480}|WebApplicationfloristeria\\WebApplicationfloristeria.csproj|C:\\Users\\Lenovo\\Documents\\cursos de la cibertec\\EFSRT\\ProyectoVSfloristeria\\WebApplicationfloristeria\\webapplicationfloristeria\\contenido\\css\\site_clients.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{9EC891C6-C9D8-44DE-AFB0-D972B5F82480}|WebApplicationfloristeria\\WebApplicationfloristeria.csproj|solutionrelative:webapplicationfloristeria\\contenido\\css\\site_clients.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EC891C6-C9D8-44DE-AFB0-D972B5F82480}|WebApplicationfloristeria\\WebApplicationfloristeria.csproj|C:\\Users\\Lenovo\\Documents\\cursos de la cibertec\\EFSRT\\ProyectoVSfloristeria\\WebApplicationfloristeria\\webapplicationfloristeria\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EC891C6-C9D8-44DE-AFB0-D972B5F82480}|WebApplicationfloristeria\\WebApplicationfloristeria.csproj|solutionrelative:webapplicationfloristeria\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9EC891C6-C9D8-44DE-AFB0-D972B5F82480}|WebApplicationfloristeria\\WebApplicationfloristeria.csproj|C:\\Users\\Lenovo\\Documents\\cursos de la cibertec\\EFSRT\\ProyectoVSfloristeria\\WebApplicationfloristeria\\webapplicationfloristeria\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9EC891C6-C9D8-44DE-AFB0-D972B5F82480}|WebApplicationfloristeria\\WebApplicationfloristeria.csproj|solutionrelative:webapplicationfloristeria\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\cursos de la cibertec\\EFSRT\\ProyectoVSfloristeria\\WebApplicationfloristeria\\WebApplicationfloristeria\\Models\\Cliente.cs",
+              "RelativeDocumentMoniker": "WebApplicationfloristeria\\Models\\Cliente.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\cursos de la cibertec\\EFSRT\\ProyectoVSfloristeria\\WebApplicationfloristeria\\WebApplicationfloristeria\\Models\\Cliente.cs",
+              "RelativeToolTip": "WebApplicationfloristeria\\Models\\Cliente.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAWwEsAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-16T15:00:46.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClienteDAO.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\cursos de la cibertec\\EFSRT\\ProyectoVSfloristeria\\WebApplicationfloristeria\\WebApplicationfloristeria\\Data\\ClienteDAO.cs",
+              "RelativeDocumentMoniker": "WebApplicationfloristeria\\Data\\ClienteDAO.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\cursos de la cibertec\\EFSRT\\ProyectoVSfloristeria\\WebApplicationfloristeria\\WebApplicationfloristeria\\Data\\ClienteDAO.cs",
+              "RelativeToolTip": "WebApplicationfloristeria\\Data\\ClienteDAO.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwD4AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-16T14:57:28.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\cursos de la cibertec\\EFSRT\\ProyectoVSfloristeria\\WebApplicationfloristeria\\WebApplicationfloristeria\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "WebApplicationfloristeria\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\cursos de la cibertec\\EFSRT\\ProyectoVSfloristeria\\WebApplicationfloristeria\\WebApplicationfloristeria\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "WebApplicationfloristeria\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAewCMAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-16T14:10:03.747Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "site_Clients.css",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\cursos de la cibertec\\EFSRT\\ProyectoVSfloristeria\\WebApplicationfloristeria\\WebApplicationfloristeria\\Contenido\\CSS\\site_Clients.css",
+              "RelativeDocumentMoniker": "WebApplicationfloristeria\\Contenido\\CSS\\site_Clients.css",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\cursos de la cibertec\\EFSRT\\ProyectoVSfloristeria\\WebApplicationfloristeria\\WebApplicationfloristeria\\Contenido\\CSS\\site_Clients.css",
+              "RelativeToolTip": "WebApplicationfloristeria\\Contenido\\CSS\\site_Clients.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-06-16T00:39:47.456Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProductoController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\cursos de la cibertec\\EFSRT\\ProyectoVSfloristeria\\WebApplicationfloristeria\\WebApplicationfloristeria\\Controllers\\ProductoController.cs",
+              "RelativeDocumentMoniker": "WebApplicationfloristeria\\Controllers\\ProductoController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\cursos de la cibertec\\EFSRT\\ProyectoVSfloristeria\\WebApplicationfloristeria\\WebApplicationfloristeria\\Controllers\\ProductoController.cs",
+              "RelativeToolTip": "WebApplicationfloristeria\\Controllers\\ProductoController.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAgwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T22:41:40.6Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\cursos de la cibertec\\EFSRT\\ProyectoVSfloristeria\\WebApplicationfloristeria\\WebApplicationfloristeria\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "WebApplicationfloristeria\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\cursos de la cibertec\\EFSRT\\ProyectoVSfloristeria\\WebApplicationfloristeria\\WebApplicationfloristeria\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "WebApplicationfloristeria\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAtwDgAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T20:25:17.298Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

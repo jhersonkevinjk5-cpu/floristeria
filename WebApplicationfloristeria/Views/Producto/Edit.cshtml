@@ -1,0 +1,114 @@
+﻿@model WebApplicationfloristeria.Models.Producto
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar Producto</h2>
+
+@using (Html.BeginForm("Edit", "Producto", FormMethod.Post, new { enctype = "multipart/Form-data" }))
+{
+
+        @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Producto</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.IdProducto)
+    @Html.HiddenFor(model => model.Imagen)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IdProducto, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.IdProducto, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NombreProducto, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NombreProducto, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NombreProducto, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Precio, htmlAttributes: new { @class = "control-label col-md-2", @min = "0.00", @type = "number", @step = "0.01" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Precio, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Precio, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Stock, htmlAttributes: new { @class = "control-label col-md-2", @min = "0" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Stock, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Stock, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Imagen, new { @class = "control-label col-md-2" })
+
+        <div class="col-md-10">
+
+            @if (!string.IsNullOrEmpty(Model.Imagen))
+            {
+                <img src="@Url.Content(Model.Imagen)"
+                     width="150"
+                     class="img-thumbnail" />
+
+                <p>Imagen actual</p>
+            }
+
+            <input type="file" name="archivoImg" accept="image/*" />
+
+            <small class="text-muted">
+                Seleccione un archivo solo si desea cambiar la imagen.
+            </small>
+
+            @Html.HiddenFor(model => model.Imagen)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Categoria, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Categoria.IdCategoria, (SelectList)ViewBag.Categoria, "--- Seleccione una Categoria ---", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Categoria.IdCategoria, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.Estado)
+                @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Guardar" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+    }
+
+    <div>
+        @Html.ActionLink("Regresar", "Index" , null , new {@class = "btn btn-primary" })
+    </div>
+
+

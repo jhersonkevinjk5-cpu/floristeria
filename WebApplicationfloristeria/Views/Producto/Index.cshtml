@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebApplicationfloristeria.Models.Producto>
+
+@{
+    ViewBag.Title = "Productos";
+}
+
+<h2>Listado de Productos</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Producto", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Producto</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Imagen</th>
+            <th>Categoría</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IdProducto</td>
+
+                <td>@item.NombreProducto</td>
+
+                <td>@item.Descripcion</td>
+
+                <td>@item.Precio.ToString("C")</td>
+
+                <td>@item.Stock</td>
+
+                <td>
+                    @if (!string.IsNullOrEmpty(item.Imagen))
+                    {
+                        <img src="@Url.Content(item.Imagen)" width="80" height="80" />
+                    }
+                </td>
+
+                <td>
+                    @(item.Categoria != null ? item.Categoria.NombreCategoria : "")
+                </td>
+
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IdProducto }, new { @class = "btn btn-warning btn-sm" })
+
+                    @Html.ActionLink("Detalle", "Details", new { id = item.IdProducto }, new { @class = "btn btn-info btn-sm" })
+
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdProducto }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

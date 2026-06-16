@@ -1,0 +1,101 @@
+﻿@model WebApplicationfloristeria.Models.Producto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalle del Producto</h2>
+
+
+<div>
+    <div>
+        @if (!string.IsNullOrEmpty(Model.Imagen)) { 
+            <img src=" @Url.Content(Model.Imagen)"/>
+        }
+        else {
+            <p>No Tiene Imagen Registrada.</p>
+        }
+    </div>
+    <div>
+        <h4>Producto</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.IdProducto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IdProducto)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NombreProducto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NombreProducto)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Precio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Precio)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Stock)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Stock)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Imagen)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Imagen)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Estado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Estado)
+            </dd>
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Categoria.IdCategoria)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Categoria.IdCategoria)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Categoria.NombreCategoria)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Categoria.NombreCategoria)
+            </dd>
+        </dl>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdProducto },new { @class = "btn btn-warning"}) |
+    @Html.ActionLink("Regresar", "Index", null , new { @class = "btn btn-primary" })
+</p>
