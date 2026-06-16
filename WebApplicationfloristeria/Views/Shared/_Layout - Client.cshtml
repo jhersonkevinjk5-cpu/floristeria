@@ -13,7 +13,7 @@
         @Scripts.Render("~/bundles/modernizr")
 
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+        <script src="https://kit.fontawesome.com/283335a286.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
@@ -61,6 +61,7 @@
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
 
+
         <div class="pie-pagina ">
             <div class="contenedor-piepagina contenedor">
                 <div class="info">
@@ -92,6 +93,44 @@
         <footer class="footer">
             <p>Todos los derechos reservados &copy; 2025 Floreria Pérez</p>
         </footer>
+
+
+
+
+        <div class="carrito-flotante" id="btnCarrito">
+            <a href="javascript:void(0)">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="contadorCarrito">0</span>
+            </a>
+        </div>
+
+
+
+        <div class="panel-carrito" id="panelCarrito">
+
+            <div class="header-carrito">
+                <h3>Mi Pedido</h3>
+                <button class="btn-close" id="cerrarCarrito" >❌</button>
+            </div>
+
+            <div class="contenido-carrito" id="contenidoCarrito">
+                <!-- productos aquí -->
+            </div>
+
+            <div class="footer-carrito">
+
+                <h3>Total: S/. <span id="totalCarrito">0</span></h3>
+
+                <button id="btnComprar" class="btn-comprar">
+                    Comprar
+                </button>
+
+            </div>
+
+        </div>
+
+
         <script src="~/Contenido/JS/app.js"></script>
     </body>
+
 </html>

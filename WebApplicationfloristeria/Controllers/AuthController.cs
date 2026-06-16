@@ -12,9 +12,11 @@ namespace WebApplicationfloristeria.Controllers
     public class AuthController : Controller
     {
         private IUsuario usuarioDAO;
+        private ICliente clienteDAO;
         public AuthController() 
         {
             usuarioDAO = new UsuarioDAO();
+            clienteDAO = new ClienteDAO();
         }
         // GET: Login
         public ActionResult Login()

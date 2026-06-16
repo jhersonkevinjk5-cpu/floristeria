@@ -116,3 +116,94 @@ const filtrarProductos = () => {
     });
 
 }
+
+// ===============================
+// JavaScript abrir/cerrar Carrito
+// ===============================
+const btnCarrito = document.getElementById("btnCarrito");
+const panelCarrito = document.getElementById("panelCarrito");
+const cerrarCarrito = document.getElementById("cerrarCarrito");
+
+if (btnCarrito != null && panelCarrito != null) {
+    btnCarrito.addEventListener("click", function () {
+        panelCarrito.classList.add("activo");
+    });
+}
+
+if (cerrarCarrito != null && panelCarrito != null) {
+    cerrarCarrito.addEventListener("click", function () {
+        panelCarrito.classList.remove("activo");
+    });
+}
+
+// =============================================
+// JavaScript Para agregar productos al carrito
+// =============================================
+const botonesAgregar = document.querySelectorAll(".agregar-carrito");
+const contenidoCarrito = document.getElementById("contenidoCarrito");
+const contador = document.getElementById("contadorCarrito");
+
+let cantidad = 0;
+let total = 0;
+
+botonesAgregar.forEach(boton => {
+
+    boton.addEventListener("click", () => {
+
+        let imagen = boton.dataset.imagen;
+        let nombre = boton.dataset.nombre;
+        let precio = parseFloat(boton.dataset.precio);
+
+        let div = document.createElement("div");
+
+        div.classList.add("item-carrito");
+
+        div.innerHTML = `
+    
+    <img src="${imagen}" class="img-carrito">
+
+    <div class="info-item">
+        <p>${nombre}</p>
+        <span>S/. ${precio}</span>
+    </div>
+
+    <button class="eliminar-item">✖</button>
+
+`;
+
+        contenidoCarrito.appendChild(div);
+
+        cantidad++;
+        total += precio;
+
+        contador.textContent = cantidad;
+        document.getElementById("totalCarrito").textContent = total;
+
+
+        // BOTON ELIMINAR
+        const btnEliminar = div.querySelector(".eliminar-item");
+
+        btnEliminar.addEventListener("click", function () {
+
+            div.remove();
+
+            cantidad--;
+            total -= precio;
+
+            contador.textContent = cantidad;
+            document.getElementById("totalCarrito").textContent = total;
+        });
+
+    });
+
+});
+
+const btnComprar = document.getElementById("btnComprar");
+
+if (btnComprar) {
+    btnComprar.addEventListener("click", function () {
+        alert("Procesando compra...");
+    });
+}
+
+alert("JS cargado");

@@ -93,7 +93,12 @@
                     <p>@item.Descripcion</p>
                     <div class="pedido">
                         <p>Agregar pedido</p>
-                        <button><i class="fas fa-shopping-cart"></i></button>
+                        <button class="agregar-carrito"
+                                data-nombre="@item.NombreProducto"
+                                data-precio="@item.Precio"
+                                data-imagen="@Url.Content(item.Imagen)">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
                     </div>
                 </div>
 
@@ -201,10 +206,3 @@
     </form>
 </div>
 
-<script src="~/Contenido/JS/app.js"></script>
-<div class="carrito-flotante">
-    <a href="#">
-        <i class="fas fa-shopping-bag"></i>
-        <span>2</span>
-    </a>
-</div>
