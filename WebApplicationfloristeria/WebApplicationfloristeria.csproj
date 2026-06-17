@@ -152,6 +152,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="App_Data\Floristeria.sql" />
     <Content Include="App_Data\USP_Validar_Usuario.sql" />
     <Content Include="Contenido\CSS\normalize.css" />

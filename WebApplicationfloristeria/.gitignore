@@ -1,0 +1,23 @@
+﻿# Visual Studio
+.vs/
+bin/
+obj/
+
+# User files
+*.user
+*.suo
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+
+# Packages
+packages/
+
+# IIS Express
+*.dbmdl
+
+# Node (si usas)
+node_modules/
