@@ -1,195 +1,177 @@
-# floristeria
-╔═══════════════════════════════════════════════════════════════════╗
-║                                                                  			║
-║              🌸 PROYECTO EFSRT — FLORISTERÍA MVC C# 🌸            			║
-║                                                                  			║
-║              📘 DOCUMENTACIÓN OFICIAL DEL PROYECTO     			        ║
-║                                                                  			║
-╚═══════════════════════════════════════════════════════════════════╝
+# 🌸 Floristería Web Application
 
-██╗███╗   ██╗███████╗ ██████╗
-██║████╗  ██║██╔════╝██╔═══██╗
-██║██╔██╗ ██║█████╗  ██║    ██║
-██║██║╚██╗██║██╔══╝  ██║    ██║
-██║██║ ╚████║██║      ╚██████╔╝
-╚═╝╚═╝  ╚═══╝╚═╝       ╚═════╝
+Sistema web desarrollado para la gestión y comercialización de productos florales, diseñado bajo el patrón de arquitectura MVC utilizando tecnologías del ecosistema .NET.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📌 FORMATOS OBLIGATORIOS DEL PROYECTO
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+El proyecto permite administrar productos, categorías, pedidos y usuarios, ofreciendo una experiencia orientada tanto a clientes como a la gestión interna del negocio.
 
-┌────────────────────────────────────┬─────────────┐
-│ DOCUMENTO			        	│ ESTADO          │
-├────────────────────────────────────┼─────────────┤
-│ 📄 Anexo 1A                          		│ ✅ OBLIGATORIO │
-│ 📄 Anexo 2A                          		│ ✅ OBLIGATORIO │
-│ 📄 Anexo 4 Nivel 2                   		│ ✅ PRINCIPAL   │
-│ 🧩 Componentes desarrollados         		│ ✅ NECESARIO   │
-│ 🛠️ Recursos necesarios               		│ ✅ NECESARIO   │
-└────────────────────────────────────┴─────────────┘
+---
 
-╔════════════════════════════════════════════════════════════════╗
-║                  ⭐ ENTREGA OFICIAL ⭐                        		    ║
-╚════════════════════════════════════════════════════════════════╝
+## 📌 Descripción del Proyecto
 
+**Floristería Web Application** es una plataforma web enfocada en la venta y administración de arreglos florales, permitiendo gestionar el catálogo de productos, procesar pedidos y brindar una experiencia organizada dentro de un entorno comercial digital.
 
-  ┌─────────────────────────────────────────┐
-  │ ✔️ 1A → Hoja de seguimiento             		│
-  ├─────────────────────────────────────────┤
-  │ ✔️ 2A → Bitácora de actividades         		│
-  ├─────────────────────────────────────────┤
-  │ ✔️ 4 Nivel 2 → Informe MVC C#           		│
-  ├─────────────────────────────────────────┤
-  │ ✔️ Componentes desarrollados            		│
-  ├─────────────────────────────────────────┤
-  │ ✔️ Recursos necesarios                  		│
-  └─────────────────────────────────────────┘
+Este proyecto fue desarrollado con fines académicos y como práctica de desarrollo full stack utilizando ASP.NET Framework.
 
+---
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🏫 CLASIFICACIÓN DE FORMATOS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 🚀 Tecnologías Utilizadas
 
-🟢 FORMATOS IES (SÍ USAN)
+* ASP.NET MVC 5
+* C#
+* .NET Framework 4.8
+* SQL Server
+* ADO.NET / Entity Framework *(según lo que uses)*
+* HTML5
+* CSS3
+* JavaScript
+* Bootstrap
+* Visual Studio 2022
+* Git & GitHub
 
-```
- ✅ Anexo 1A
- ✅ Anexo 2A
- ✅ Anexo 4
+---
 
- ⚠️ Anexo 3A → Opcional
-```
+## ⚙️ Funcionalidades Principales
 
-🔴 FORMATOS CL (NO USAN)
+### Cliente
 
-```
- ❌ Anexo 1B
- ❌ Anexo 2B
- ❌ Anexo 3B
-```
+* Visualización del catálogo de productos
+* Filtrado de productos por categorías
+* Visualización detallada de productos
+* Carrito de compras
+* Registro e inicio de sesión
+* Realización de pedidos
 
-██████╗ ███████╗████████╗ █████╗  ██╗      ██╗      ███████╗
-██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██║      ██║      ██╔════╝
-██║  ██║█████╗       ██║    ███████║██║      ██║      █████╗
-██║  ██║██╔══╝       ██║    ██╔══██║██║      ██║      ██╔══╝
-██████╔╝███████╗    ██║    ██║  ██║███████╗███████╗███████╗
-╚═════╝ ╚══════╝    ╚═╝    ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
+### Administración
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📄 ANEXO 1A — HOJA DE SEGUIMIENTO
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+* Gestión de productos (CRUD)
+* Gestión de categorías
+* Gestión de usuarios
+* Administración de pedidos
+* Gestión de inventario
+* Panel administrativo
 
-╭──────────────────────────────────╮
-│ ✔️ Control de horas trabajadas             │
-│ ✔️ Registro de avances                     │
-│ ✔️ Seguimiento del docente monitor         │
-│ ✔️ Evaluación del progreso                 │
-╰──────────────────────────────────╯
+---
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📄 ANEXO 2A — BITÁCORA DE ACTIVIDADES
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 🏗 Arquitectura del Proyecto
 
-╭──────────────────────────────────╮
-│ 📝 Registro semanal del proyecto           │
-│ 👥 Reuniones realizadas                    │
-│ 📈 Avances del sistema                     │
-│ 📌 Tareas desarrolladas                    │
-│ ⚙️ Actividades ejecutadas                  │
-╰──────────────────────────────────╯
+El proyecto sigue el patrón de arquitectura **MVC (Model - View - Controller)**.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⭐ ANEXO 4 — INFORME PRINCIPAL DEL SISTEMA
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-```
-          🌸 FLORISTERÍA MVC EN C# 🌸
+```text
+WebApplicationfloristeria/
+│
+├── Controllers/        -> Lógica de control
+├── Models/             -> Entidades y acceso a datos
+├── Views/              -> Interfaz de usuario
+├── Scripts/            -> JavaScript
+├── Content/            -> CSS, imágenes, multimedia
+├── App_Start/          -> Configuración inicial
+└── Web.config          -> Configuración general
 ```
 
-┌────────────────────────────────────────────────────┐
-│ 📚 CONTENIDO DEL INFORME                           		     │
-└────────────────────────────────────────────────────┘
+---
 
-🔹 Problema del proyecto
-🔹 Objetivos generales y específicos
-🔹 BPMN
-🔹 Metodología RUP
-🔹 Arquitectura MVC
-🔹 Base de datos SQL Server
-🔹 Diagramas
-🔹 Interfaces del sistema
-🔹 Módulos desarrollados
-🔹 Conclusiones
+## 🗄 Base de Datos
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🧩 COMPONENTES DESARROLLADOS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+El sistema utiliza **SQL Server** como gestor de base de datos.
 
-```
-    ┌─────────────── SISTEMA ───────────────┐
-    │                  		                     │
-    ▼                          		             ▼
-┌────────────────┐	                 ┌────────────────┐
-│ 💻 Código C#       │	                 │ 🗄️ SQL Server       │
-└────────────────┘	                 └────────────────┘
-    ▼												▼
-┌────────────────┐	                 ┌────────────────┐
-│ 📊 BPMN            │	                 │ 🖼️ Interfaces       │
-└────────────────┘	                 └────────────────┘
-    ▼       	          		            ▼
-┌────────────────┐	                 ┌────────────────┐
-│ 📸 Capturas        │	                 │ 🌐 GitHub           │
-└────────────────┘	                 └────────────────┘
+Principales entidades:
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🛠️ RECURSOS NECESARIOS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+* Usuarios
+* Roles
+* Productos
+* Categorías
+* Pedidos
+* DetallePedido
+* Clientes
+* Inventario
 
-╔════════════════════════════════════╗
-║ 💻 Visual Studio                     		║
-║ 🗄️ SQL Server                        		║
-║ 🌐 GitHub                            		║
-║ 📚 Librerías PDF                     		║
-║ ⚙️ Framework MVC                     		║
-║ 🌍 Internet                          		║
-║ 🖥️ Laptop / PC                       		║
-╚════════════════════════════════════╝
+---
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-❌ FORMATOS QUE NO DEBEN UTILIZAR
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## 🔧 Instalación y Ejecución
 
-🚫 Anexo 1B → Centro laboral
-🚫 Anexo 2B → Empresas
-🚫 Anexo 3B → Prácticas laborales
+### 1. Clonar repositorio
 
-⚠️ Anexo 3A:
-✔️ Opcional
-❌ No reemplaza el Anexo 4
-
-╔══════════════════════════════════════════════════════╗
-║                  ✅ RESUMEN FINAL         			  ║
-╚══════════════════════════════════════════════════════╝
-
-```
-      🎯 DOCUMENTOS IMPORTANTES
-
-           ✅ 1A
-           ✅ 2A
-           ✅ 4 Nivel 2
-           ✅ Componentes
-           ✅ Recursos
-
-
-      ❌ DOCUMENTOS NO VÁLIDOS
-
-           ❌ 1B
-           ❌ 2B
-           ❌ 3B
+```bash
+git clone https://github.com/jhersonkevinjk5-cpu/floristeria.git
 ```
 
-╭──────────────────────────────────────────────────────╮
-│ ⭐ EL DOCUMENTO MÁS IMPORTANTE ES EL ANEXO 4 ⭐     │
-│                                                      │
-│      📘 INFORME DEL SISTEMA MVC EN C#               │
-╰──────────────────────────────────────────────────────╯
+### 2. Abrir solución
+
+Abrir el archivo:
+
+```text
+WebApplicationfloristeria.sln
+```
+
+en Visual Studio.
+
+### 3. Restaurar paquetes
+
+Restaurar dependencias NuGet automáticamente desde Visual Studio.
+
+### 4. Configurar base de datos
+
+* Crear base de datos en SQL Server
+* Ejecutar script SQL correspondiente
+* Configurar cadena de conexión en:
+
+```text
+Web.config
+```
+
+### 5. Ejecutar proyecto
+
+Presionar:
+
+```text
+F5
+```
+
+o ejecutar desde IIS Express.
+
+---
+
+## 📷 Capturas del Sistema
+
+*(Agregar screenshots del sistema aquí)*
+
+Ejemplo:
+
+* Página principal
+* Catálogo de productos
+* Panel administrativo
+* Carrito de compras
+* Formulario de pedidos
+
+---
+
+## 📂 Control de Versiones
+
+El proyecto utiliza:
+
+* Git
+* GitHub
+
+Repositorio oficial:
+
+https://github.com/jhersonkevinjk5-cpu/floristeria
+
+---
+
+## 👨‍💻 Autor
+
+**Jherson Serna**
+
+Proyecto desarrollado como parte del proceso de aprendizaje en desarrollo web y arquitectura MVC utilizando tecnologías .NET.
+
+GitHub:
+
+https://github.com/jhersonkevinjk5-cpu
+
+---
+
+## 📄 Licencia
+
+Proyecto desarrollado con fines educativos.
+
+Uso libre para aprendizaje y referencia académica.
