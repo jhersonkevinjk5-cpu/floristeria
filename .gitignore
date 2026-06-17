@@ -3,21 +3,43 @@
 bin/
 obj/
 
-# User files
+# User specific files
 *.user
 *.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
 
 # Logs
 *.log
 
-# Temporary files
+# Temp files
 *.tmp
+*.cache
 
-# Packages
+# NuGet packages
 packages/
+*.nupkg
 
 # IIS Express
 *.dbmdl
+*.pdb
 
-# Node (si usas)
+# Visual Studio cache
+*.VC.db
+
+# Rider / VS Code (por si algún día cambias IDE)
+.idea/
+.vscode/
+
+# Node
 node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
