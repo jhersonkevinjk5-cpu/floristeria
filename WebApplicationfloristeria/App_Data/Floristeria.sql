@@ -198,94 +198,94 @@ VALUES
 -- Ramos (1)
 ('Ramo de Rosas Rojas',
 '12 rosas rojas premium envueltas',
-85.00,20,'ramo_rosas.jpg',1,1),
+85.00,20,'~/Contenido/Multimedia/Productos/ramo_rosas.jpg',1,1),
 
 ('Ramo Primavera',
 'Mix de flores coloridas frescas',
-65.00,15,'primavera.jpg',1,1),
+65.00,15,'~/Contenido/Multimedia/Productos/primavera.jpg',1,1),
 
 ('Ramo Elegancia Blanca',
 'Rosas blancas y lirios',
-95.00,12,'blanco.jpg',1,1),
+95.00,12,'~/Contenido/Multimedia/Productos/blanco.jpg',1,1),
 
 -- Cajas Florales (2)
 ('Caja Floral Amor',
 'Caja decorativa con rosas rosadas',
-120.00,10,'caja_amor.jpg',2,1),
+120.00,10,'~/Contenido/Multimedia/Productos/caja_amor.jpg',2,1),
 
 ('Caja Deluxe Rosé',
 'Caja premium con flores importadas',
-180.00,8,'deluxe.jpg',2,1),
+180.00,8,'~/Contenido/Multimedia/Productos/deluxe.jpg',2,1),
 
 -- Arreglos Premium (3)
 ('Arreglo Luxury Gold',
 'Arreglo floral premium elegante',
-250.00,5,'gold.jpg',3,1),
+250.00,5,'~/Contenido/Multimedia/Productos/gold.jpg',3,1),
 
 ('Arreglo Cumpleaños Premium',
 'Flores + decoración especial',
-210.00,7,'cumple.jpg',3,1),
+210.00,7,'~/Contenido/Multimedia/Productos/cumple.jpg',3,1),
 
 ('Arreglo Ejecutivo',
 'Diseño minimalista premium',
-230.00,6,'ejecutivo.jpg',3,1),
+230.00,6,'~/Contenido/Multimedia/Productos/ejecutivo.jpg',3,1),
 
 -- Bouquets (4)
 ('Bouquet Romantic',
 'Bouquet romántico color pastel',
-70.00,14,'romantic.jpg',4,1),
+70.00,14,'~/Contenido/Multimedia/Productos/romantic.jpg',4,1),
 
 ('Bouquet Sunset',
 'Tonos naranjas y amarillos',
-78.00,11,'sunset.jpg',4,1),
+78.00,11,'~/Contenido/Multimedia/Productos/sunset.jpg',4,1),
 
 ('Bouquet Elegante',
 'Flores premium para regalo',
-88.00,10,'bouquet_elegante.jpg',4,1),
+88.00,10,'~/Contenido/Multimedia/Productos/bouquet_elegante.jpg',4,1),
 
 -- Peluches (5)
 ('Oso Teddy Grande',
 'Peluche acompañante para regalo',
-55.00,18,'oso.jpg',5,1),
+55.00,18,'~/Contenido/Multimedia/Productos/oso.jpg',5,1),
 
 ('Caja Chocolates Ferrero',
 'Chocolate premium acompañante',
-35.00,25,'ferrero.jpg',5,1),
+35.00,25,'~/Contenido/Multimedia/Productos/ferrero.jpg',5,1),
 
 ('Combo Romance',
 'Peluche + flores + tarjeta',
-145.00,10,'combo.jpg',5,1),
+145.00,10,'~/Contenido/Multimedia/Productos/combo.jpg',5,1),
 
 -- Flores Naturales (6)
 ('Rosas Blancas x Unidad',
 'Rosa blanca natural fresca',
-8.00,50,'rosa_blanca.jpg',6,1),
+8.00,50,'~/Contenido/Multimedia/Productos/rosa_blanca.jpg',6,1),
 
 ('Girasol Natural',
 'Girasol fresco premium',
-12.00,40,'girasol.jpg',6,1),
+12.00,40,'~/Contenido/Multimedia/Productos/girasol.jpg',6,1),
 
 ('Tulipán Holandés',
 'Tulipán importado',
-18.00,25,'tulipan.jpg',6,1),
+18.00,25,'~/Contenido/Multimedia/Productos/tulipan.jpg',6,1),
 
 -- Eventos (7)
 ('Decoración Boda Floral',
 'Decoración floral completa',
-550.00,3,'boda.jpg',7,1),
+550.00,3,'~/Contenido/Multimedia/Productos/boda.jpg',7,1),
 
 ('Decoración Fiesta XV',
 'Decoración floral elegante',
-420.00,4,'xv.jpg',7,1),
+420.00,4,'~/Contenido/Multimedia/Productos/xv.jpg',7,1),
 
 -- Plantas (8)
 ('Orquídea Premium',
 'Orquídea decorativa natural',
-95.00,12,'orquidea.jpg',8,1),
+95.00,12,'~/Contenido/Multimedia/Productos/orquidea.jpg',8,1),
 
 ('Mini Bonsai Zen',
 'Planta decorativa premium',
-110.00,9,'bonsai.jpg',8,1);
+110.00,9,'~/Contenido/Multimedia/Productos/bonsai.jpg',8,1);
 GO
 
 /******** TRIGGERS ********/

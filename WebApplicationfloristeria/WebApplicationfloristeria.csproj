@@ -173,6 +173,27 @@
     <Content Include="Contenido\Multimedia\IMG\icon.png" />
     <Content Include="Contenido\Multimedia\IMG\logo.png" />
     <Content Include="Contenido\Multimedia\IMG\tulipanes.png" />
+    <Content Include="Contenido\Multimedia\Productos\blanco.jpg" />
+    <Content Include="Contenido\Multimedia\Productos\boda.jpg" />
+    <Content Include="Contenido\Multimedia\Productos\bonsai.jpg" />
+    <Content Include="Contenido\Multimedia\Productos\bouquet_elegante.jpg" />
+    <Content Include="Contenido\Multimedia\Productos\caja_amor.jpg" />
+    <Content Include="Contenido\Multimedia\Productos\combo.jpg" />
+    <Content Include="Contenido\Multimedia\Productos\cumple.jpg" />
+    <Content Include="Contenido\Multimedia\Productos\deluxe.jpg" />
+    <Content Include="Contenido\Multimedia\Productos\ejecutivo.jpg" />
+    <Content Include="Contenido\Multimedia\Productos\ferrero.jpg" />
+    <Content Include="Contenido\Multimedia\Productos\girasol.jpg" />
+    <Content Include="Contenido\Multimedia\Productos\gold.jpg" />
+    <Content Include="Contenido\Multimedia\Productos\orquidea.jpg" />
+    <Content Include="Contenido\Multimedia\Productos\oso.jpg" />
+    <Content Include="Contenido\Multimedia\Productos\primavera.jpg" />
+    <Content Include="Contenido\Multimedia\Productos\ramo_rosas.jpg" />
+    <Content Include="Contenido\Multimedia\Productos\romantic.jpg" />
+    <Content Include="Contenido\Multimedia\Productos\rosa_blanca.jpg" />
+    <Content Include="Contenido\Multimedia\Productos\sunset.jpg" />
+    <Content Include="Contenido\Multimedia\Productos\tulipan.jpg" />
+    <Content Include="Contenido\Multimedia\Productos\xv.jpg" />
     <Content Include="Contenido\Multimedia\Video\arreglo-floral.mp4" />
     <Content Include="Contenido\Multimedia\Video\bg_video.mp4" />
     <Content Include="Contenido\Multimedia\Video\florista.mp4" />
@@ -255,9 +276,7 @@
     <Content Include="Views\Home\ReporteVentas.cshtml" />
     <Content Include="Views\Shared\_Carrito.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Contenido\Multimedia\Productos\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
     <Content Include="Content\bootstrap.rtl.css.map" />
