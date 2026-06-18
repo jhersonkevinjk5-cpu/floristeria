@@ -1,0 +1,410 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(-45deg,#fde2f3,#f3e8ff,#e0f2fe,#fce7f3);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.main-container {
+    height: 100vh;
+    position: relative;
+    z-index: 2;
+}
+
+/* partículas */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,.5);
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
+
+/* brillo detrás del loto */
+.glow {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,192,203,.45), transparent 70%);
+    filter: blur(45px);
+    animation: pulse 4s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.model-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+model-viewer {
+    width: 550px;
+    height: 550px;
+    position: relative;
+    z-index: 3;
+    filter: drop-shadow(0px 0px 25px rgba(255,255,255,.6));
+}
+
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    width: 420px;
+    padding: 35px;
+    border-radius: 22px;
+    background: rgba(255,255,255,.30);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.12);
+    animation: slideIn 1.2s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(80px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+    .title h2 {
+        color: #FF779E;
+        font-weight: bold;
+    }
+
+    .title p {
+        color: #2a2020;
+        font-size: 14px;
+    }
+
+.form-control {
+    border-radius: 12px;
+    padding: 12px;
+    border: none;
+}
+
+    .form-control:focus {
+        box-shadow: 0 0 10px rgba(186,104,200,.4);
+    }
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: #ab47bc;
+    transition: .3s;
+}
+
+    .btn-login:hover {
+        transform: translateY(-3px);
+        background: #8e24aa;
+        box-shadow: 0 6px 18px rgba(171,71,188,.3);
+    }
+
+/* pétalos flotando */
+.petal {
+    position: absolute;
+    font-size: 24px;
+    animation: petalFall linear infinite;
+    opacity: .7;
+}
+
+@keyframes petalFall {
+    from {
+        transform: translateY(-50px) rotate(0deg);
+    }
+
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -3;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(20,20,30,0.35);
+    z-index: -2;
+}
+
+                /* =========================
+                   LOGIN CARD BASE
+                ========================= */
+
+.login-card {
+    width: 420px;
+    padding: 38px;
+    border-radius: 24px;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(22px);
+    border: 1px solid rgba(255,255,255,0.35);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+}
+
+                /* =========================
+                   HEADER
+                ========================= */
+
+.login-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff4d8d;
+}
+
+.subtitle {
+    font-size: 13px;
+    color: rgba(0,0,0,0.65);
+}
+
+                /* =========================
+                   INPUTS
+                ========================= */
+
+.input-group {
+    margin-bottom: 12px;
+}
+
+.form-control {
+    border-radius: 14px;
+    padding: 12px 14px;
+    border: none;
+    background: rgba(255,255,255,0.7);
+    transition: 0.3s;
+}
+
+    .form-control:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(255,77,141,0.25);
+        transform: scale(1.02);
+    }
+
+                /* =========================
+                   BUTTONS
+                ========================= */
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    border-radius: 14px;
+    border: none;
+    background: linear-gradient(135deg, #ff4d8d, #a855f7);
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+    .btn-login:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(168,85,247,0.35);
+    }
+
+.btn-switch {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.2);
+    color: #333;
+    transition: 0.3s;
+}
+
+    .btn-switch:hover {
+        background: rgba(255,255,255,0.35);
+        transform: translateY(-1px);
+    }
+
+                /* =========================
+                   FLIP SYSTEM (IMPORTANTE)
+                ========================= */
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    margin: auto;
+    perspective: 1200px;
+}
+
+.login-card-flip {
+    width: 100%;
+    height: 320px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.9s;
+}
+
+
+    /* SOLO ESTA ES LA ROTACIÓN */
+    .login-card-flip.flipped {
+        transform: rotateY(180deg);
+    }
+
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+                /* =========================
+                   CARAS
+                ========================= */
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 25px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.9);
+    backface-visibility: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+                /* =========================
+                   EFECTOS
+                ========================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, rgba(255,105,180,0.25), transparent 60%);
+    z-index: -1;
+    transition: 0.5s;
+}
+
+/* modo cliente */
+body.cliente-mode::before {
+    background: radial-gradient(circle, rgba(0,200,255,0.25), transparent 60%);
+}
+
+/* pétalos */
+.petal {
+    position: fixed;
+    top: -50px;
+    animation: fall linear forwards;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* shake error */
+.shake {
+    animation: shake 0.4s;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-8px);
+    }
+
+    50% {
+        transform: translateX(8px);
+    }
+
+    75% {
+        transform: translateX(-8px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

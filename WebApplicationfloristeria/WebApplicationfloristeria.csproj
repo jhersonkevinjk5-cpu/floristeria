@@ -163,13 +163,15 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="App_Data\Floristeria.sql" />
-    <Content Include="App_Data\USP_Validar_Usuario.sql" />
+    <Content Include="Contenido\CSS\login.css" />
     <Content Include="Contenido\CSS\normalize.css" />
     <Content Include="Contenido\JS\app.js" />
     <Content Include="Contenido\CSS\site_Clients.css" />
     <Content Include="Contenido\JS\login.js" />
+    <Content Include="Contenido\Multimedia\IMG\favicon.png" />
     <Content Include="Contenido\Multimedia\IMG\gardenias.png" />
     <Content Include="Contenido\Multimedia\IMG\icon.png" />
+    <Content Include="Contenido\Multimedia\IMG\logo.png" />
     <Content Include="Contenido\Multimedia\IMG\tulipanes.png" />
     <Content Include="Contenido\Multimedia\Video\arreglo-floral.mp4" />
     <Content Include="Contenido\Multimedia\Video\bg_video.mp4" />

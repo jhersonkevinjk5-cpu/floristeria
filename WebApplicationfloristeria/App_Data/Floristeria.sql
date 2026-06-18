@@ -147,18 +147,145 @@ CREATE TABLE MovimientoStock(
 GO
 
 /******** DATOS INICIALES ********/
-INSERT INTO Rol VALUES ('Administrador'),('Vendedor');
-INSERT INTO EstadoPedido VALUES ('Pendiente'),('En Ruta'),('Entregado');
-INSERT INTO MetodoPago VALUES ('Yape'),('Plin'),('Efectivo'),('Transferencia'),('Tarjeta');
+-- ROLES
+INSERT INTO Rol VALUES 
+('Administrador'),
+('Vendedor');
+GO
 
-INSERT INTO Usuario(Nombres,Apellidos,Correo,clave,IdRol,Estado)
-VALUES('Admin','Sistema','admin@floreria.com','123456',1,1); 
+-- ESTADOS PEDIDO
+INSERT INTO EstadoPedido VALUES 
+('Pendiente'),
+('En Ruta'),
+('Entregado');
+GO
 
+-- MÉTODOS DE PAGO
+INSERT INTO MetodoPago VALUES 
+('Yape'),
+('Plin'),
+('Efectivo'),
+('Transferencia'),
+('Tarjeta');
+GO
+-- USUARIO ADMIN
+INSERT INTO Usuario(Nombres,Apellidos,Correo,Clave,IdRol,Estado)
+VALUES
+('NombAdmin','Admins','admin@floreria.com','12345',1,1);
+GO
+-- CLIENTE EJEMPLO
+INSERT INTO Cliente(Nombres,Apellidos,Telefono,Correo,Direccion)
+VALUES
+('Geraldine','Client','999999999','client@floreria.com','Av. Primavera 452');
+GO
+
+-- CATEGORÍAS
 INSERT INTO Categoria(NombreCategoria,Descripcion,Estado)
 VALUES
-('Ramos','Ramos de flores',1),
-('Cajas','Cajas florales',1),
-('Arreglos','Arreglos especiales',1);
+('Ramos','Ramos de flores frescas',1),
+('Cajas Florales','Cajas decorativas con flores',1),
+('Arreglos Premium','Arreglos exclusivos para eventos',1),
+('Bouquets','Bouquets elegantes y personalizados',1),
+('Peluches y Regalos','Complementos románticos',1),
+('Flores Naturales','Flores frescas individuales',1),
+('Eventos','Decoraciones para bodas y fiestas',1),
+('Plantas Ornamentales','Plantas decorativas para hogar',1);
+GO
+-- PRODUCTOS (20)
+INSERT INTO Producto(NombreProducto,Descripcion,Precio,Stock,Imagen,IdCategoria,Estado)
+VALUES
+
+-- Ramos (1)
+('Ramo de Rosas Rojas',
+'12 rosas rojas premium envueltas',
+85.00,20,'ramo_rosas.jpg',1,1),
+
+('Ramo Primavera',
+'Mix de flores coloridas frescas',
+65.00,15,'primavera.jpg',1,1),
+
+('Ramo Elegancia Blanca',
+'Rosas blancas y lirios',
+95.00,12,'blanco.jpg',1,1),
+
+-- Cajas Florales (2)
+('Caja Floral Amor',
+'Caja decorativa con rosas rosadas',
+120.00,10,'caja_amor.jpg',2,1),
+
+('Caja Deluxe Rosé',
+'Caja premium con flores importadas',
+180.00,8,'deluxe.jpg',2,1),
+
+-- Arreglos Premium (3)
+('Arreglo Luxury Gold',
+'Arreglo floral premium elegante',
+250.00,5,'gold.jpg',3,1),
+
+('Arreglo Cumpleaños Premium',
+'Flores + decoración especial',
+210.00,7,'cumple.jpg',3,1),
+
+('Arreglo Ejecutivo',
+'Diseño minimalista premium',
+230.00,6,'ejecutivo.jpg',3,1),
+
+-- Bouquets (4)
+('Bouquet Romantic',
+'Bouquet romántico color pastel',
+70.00,14,'romantic.jpg',4,1),
+
+('Bouquet Sunset',
+'Tonos naranjas y amarillos',
+78.00,11,'sunset.jpg',4,1),
+
+('Bouquet Elegante',
+'Flores premium para regalo',
+88.00,10,'bouquet_elegante.jpg',4,1),
+
+-- Peluches (5)
+('Oso Teddy Grande',
+'Peluche acompañante para regalo',
+55.00,18,'oso.jpg',5,1),
+
+('Caja Chocolates Ferrero',
+'Chocolate premium acompañante',
+35.00,25,'ferrero.jpg',5,1),
+
+('Combo Romance',
+'Peluche + flores + tarjeta',
+145.00,10,'combo.jpg',5,1),
+
+-- Flores Naturales (6)
+('Rosas Blancas x Unidad',
+'Rosa blanca natural fresca',
+8.00,50,'rosa_blanca.jpg',6,1),
+
+('Girasol Natural',
+'Girasol fresco premium',
+12.00,40,'girasol.jpg',6,1),
+
+('Tulipán Holandés',
+'Tulipán importado',
+18.00,25,'tulipan.jpg',6,1),
+
+-- Eventos (7)
+('Decoración Boda Floral',
+'Decoración floral completa',
+550.00,3,'boda.jpg',7,1),
+
+('Decoración Fiesta XV',
+'Decoración floral elegante',
+420.00,4,'xv.jpg',7,1),
+
+-- Plantas (8)
+('Orquídea Premium',
+'Orquídea decorativa natural',
+95.00,12,'orquidea.jpg',8,1),
+
+('Mini Bonsai Zen',
+'Planta decorativa premium',
+110.00,9,'bonsai.jpg',8,1);
 GO
 
 /******** TRIGGERS ********/
@@ -515,6 +642,109 @@ BEGIN
 
 SELECT *
 FROM vw_ReporteVentas
+
+END
+GO
+/*************************************************
+SP Validar_Usuario
+**************************************************/
+CREATE PROCEDURE USP_Validar_Usuario
+(
+    @Correo VARCHAR(100),
+    @Clave VARCHAR(100)
+)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        U.IdUsuario,
+        U.Nombres,
+        U.Apellidos,
+        U.Correo,
+        U.IdRol,
+        R.NombreRol
+    FROM Usuario U
+    INNER JOIN Rol R
+        ON U.IdRol = R.IdRol
+    WHERE U.Correo = @Correo
+      AND U.Clave = @Clave
+      AND U.Estado = 1;
+END
+GO
+/*************************************************
+sp_Validar_Cliente
+**************************************************/
+CREATE PROCEDURE sp_Validar_Cliente
+(
+    @Nombres VARCHAR(100),
+    @Correo VARCHAR(100)
+)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        IdCliente,
+        Nombres,
+        Apellidos,
+        Telefono,
+        Correo,
+        Direccion,
+        FechaRegistro
+    FROM Cliente
+    WHERE Nombres = @Nombres
+      AND Correo = @Correo;
+END
+GO
+/*************************************************
+sp_RegistrarPedido
+**************************************************/
+
+CREATE PROC sp_RegistrarPedido
+
+@IdCliente INT,
+@IdUsuario INT,
+@IdMetodoPago INT,
+@FechaEntrega DATE,
+@DireccionEntrega VARCHAR(300),
+@Dedicatoria VARCHAR(500),
+@SubTotal DECIMAL(10,2),
+@IGV DECIMAL(10,2),
+@Total DECIMAL(10,2),
+@IdEstado INT
+
+AS
+BEGIN
+
+INSERT INTO Pedido
+(
+IdCliente,
+IdUsuario,
+IdMetodoPago,
+FechaEntrega,
+DireccionEntrega,
+Dedicatoria,
+SubTotal,
+IGV,
+Total,
+IdEstado
+)
+VALUES
+(
+@IdCliente,
+@IdUsuario,
+@IdMetodoPago,
+@FechaEntrega,
+@DireccionEntrega,
+@Dedicatoria,
+@SubTotal,
+@IGV,
+@Total,
+@IdEstado
+)
+
+SELECT SCOPE_IDENTITY()
 
 END
 GO

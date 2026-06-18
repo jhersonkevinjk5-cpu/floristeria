@@ -10,7 +10,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>@ViewBag.Title - Dashboard Florería</title>
+    <title>@ViewBag.Title - Dashboard Florería Pétalos y Aromas </title>
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -20,7 +20,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
-
+    <link rel="icon" type="image/png" href="@Url.Content("~/Contenido/Multimedia/IMG/favicon.png")" />
 
     <style>
 
@@ -201,7 +201,7 @@
         <div class="sidebar">
 
             <div class="logo">
-                🌸 Rosas del Jardín
+                <img src="~/Contenido/Multimedia/IMG/logo.png" width="70" /> Pétalos y Aromas
             </div>
 
             <a href="@Url.Action("Index","Home")">
@@ -299,7 +299,7 @@
                 </div>
 
                 <div class="footer">
-                    © @DateTime.Now.Year Rosas del Jardín
+                    © @DateTime.Now.Year Pétalos y Aromas
                 </div>
 
             </div>
