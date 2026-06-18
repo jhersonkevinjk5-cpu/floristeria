@@ -76,9 +76,59 @@ namespace WebApplicationfloristeria.Data.Interfaces
             return pedidos;
         }
 
-        public int Registrar(Pedido entidad)
+        public int Registrar(Pedido pedido)
         {
-            throw new NotImplementedException();
+            int idPedidoGenerado = -1;
+            using (SqlConnection cnx = new SqlConnection(CadenaCnx))
+            {
+                cnx.Open();
+                SqlTransaction transaccion = cnx.BeginTransaction();
+
+                try
+                {
+                    string queryMaestro = @"INSERT INTO Pedido (FechaPedido, IdCliente, IdUsuario, IdMetodoPago, FechaEntrega, DireccionEntrega, Dedicatoria, SubTotal, IGV, Total, IdEstado) 
+                                            VALUES (@fechaPedido, @idCliente, @idUsuario, @idMetodoPago, @fechaEntrega, @direccionEntrega, @dedicatoria, @subTotal, @igv, @total, @idEstado);
+                                            SELECT SCOPE_IDENTITY();";
+
+                    SqlCommand cmdM = new SqlCommand(queryMaestro, cnx, transaccion);
+                    cmdM.Parameters.AddWithValue("@fechaPedido", pedido.FechaPedido);
+                    cmdM.Parameters.AddWithValue("@idCliente", pedido.IdCliente);
+                    cmdM.Parameters.AddWithValue("@idUsuario", pedido.IdUsuario);
+                    cmdM.Parameters.AddWithValue("@idMetodoPago", pedido.IdMetodoPago);
+                    cmdM.Parameters.AddWithValue("@fechaEntrega", pedido.FechaEntrega);
+                    cmdM.Parameters.AddWithValue("@direccionEntrega", pedido.DireccionEntrega);
+                    cmdM.Parameters.AddWithValue("@dedicatoria", pedido.Dedicatoria ?? (object)DBNull.Value);
+                    cmdM.Parameters.AddWithValue("@subTotal", pedido.SubTotal);
+                    cmdM.Parameters.AddWithValue("@igv", pedido.IGV);
+                    cmdM.Parameters.AddWithValue("@total", pedido.Total);
+                    cmdM.Parameters.AddWithValue("@idEstado", pedido.IdEstado);
+
+                     idPedidoGenerado = Convert.ToInt32(cmdM.ExecuteScalar());
+
+                    string queryDetalle = @"INSERT INTO DetallePedido (IdPedido, IdProducto, Cantidad, PrecioUnitario, Importe) 
+                                            VALUES (@idPedido, @idProducto, @cantidad, @precioUnitario, @importe)";
+
+                    foreach (var detalle in pedido.DetallePedidos)
+                    {
+                        SqlCommand cmdD = new SqlCommand(queryDetalle, cnx, transaccion);
+                        cmdD.Parameters.AddWithValue("@idPedido", idPedidoGenerado);
+                        cmdD.Parameters.AddWithValue("@idProducto", detalle.IdProducto);
+                        cmdD.Parameters.AddWithValue("@cantidad", detalle.Cantidad);
+                        cmdD.Parameters.AddWithValue("@precioUnitario", detalle.PrecioUnitario);
+                        cmdD.Parameters.AddWithValue("@importe", detalle.Importe);
+
+                        cmdD.ExecuteNonQuery();
+                    }
+
+                    transaccion.Commit();
+                    return idPedidoGenerado;
+                }
+                catch (Exception)
+                {
+                    transaccion.Rollback();
+                    return -1;
+                }
+            }
         }
 
         public bool RegistrarPedidoCompleto(Pedido pedido)

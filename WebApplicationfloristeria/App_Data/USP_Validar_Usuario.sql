@@ -45,3 +45,51 @@ BEGIN
       AND Correo = @Correo;
 END
 GO
+
+
+CREATE PROC sp_RegistrarPedido
+
+@IdCliente INT,
+@IdUsuario INT,
+@IdMetodoPago INT,
+@FechaEntrega DATE,
+@DireccionEntrega VARCHAR(300),
+@Dedicatoria VARCHAR(500),
+@SubTotal DECIMAL(10,2),
+@IGV DECIMAL(10,2),
+@Total DECIMAL(10,2),
+@IdEstado INT
+
+AS
+BEGIN
+
+INSERT INTO Pedido
+(
+IdCliente,
+IdUsuario,
+IdMetodoPago,
+FechaEntrega,
+DireccionEntrega,
+Dedicatoria,
+SubTotal,
+IGV,
+Total,
+IdEstado
+)
+VALUES
+(
+@IdCliente,
+@IdUsuario,
+@IdMetodoPago,
+@FechaEntrega,
+@DireccionEntrega,
+@Dedicatoria,
+@SubTotal,
+@IGV,
+@Total,
+@IdEstado
+)
+
+SELECT SCOPE_IDENTITY()
+
+END

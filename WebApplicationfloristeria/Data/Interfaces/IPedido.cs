@@ -9,5 +9,6 @@ namespace WebApplicationfloristeria.Data.Interfaces
 {
     internal interface IPedido : ICRUD < Pedido , int>
     {
+         bool RegistrarPedidoCompleto(Pedido pedido);
     }
 }

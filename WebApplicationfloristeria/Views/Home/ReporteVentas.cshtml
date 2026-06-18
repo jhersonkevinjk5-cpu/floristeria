@@ -1,0 +1,155 @@
+﻿@model List<WebApplicationfloristeria.Models.Pedido>
+
+@{
+    Layout = null;
+
+    decimal totalGeneral = Model.Sum(x => x.Total);
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            color: #333;
+        }
+
+        .header {
+            border-bottom: 3px solid #b76ac4;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #9c27b0;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .info {
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th {
+            background: #b76ac4;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            font-size: 13px;
+        }
+
+        tr:nth-child(even) {
+            background: #faf5fc;
+        }
+
+        .total-box {
+            margin-top: 30px;
+            text-align: right;
+        }
+
+        .total {
+            display: inline-block;
+            background: #f3e5f5;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #7b1fa2;
+        }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+
+        <div style="display:flex; align-items:center; gap:15px;">
+
+            <img src="@Url.Content("~/Contenido/Multimedia/IMG/icon.png")"
+                 width="70" />
+
+            <div>
+                <div class="title">Lotus Florería</div>
+                <div class="subtitle">Reporte General de Ventas</div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="info">
+        <strong>Fecha de generación:</strong>
+        @DateTime.Now.ToString("dd/MM/yyyy HH:mm")
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID Pedido</th>
+                <th>Cliente</th>
+                <th>Fecha</th>
+                <th>Total Venta</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.IdPedido</td>
+
+                    <!-- Cambia esto según tu modelo -->
+                    <td>@item.Cliente.Nombres</td>
+
+                    <td>@item.FechaPedido.ToString("dd/MM/yyyy")</td>
+
+                    <td>S/ @item.Total.ToString("N2")</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+    <div class="total-box">
+        <div class="total">
+            Total General: S/ @totalGeneral.ToString("N2")
+        </div>
+    </div>
+
+    <div class="footer">
+        Documento generado automáticamente por Lotus Florería © 2026
+    </div>
+
+</body>
+</html>

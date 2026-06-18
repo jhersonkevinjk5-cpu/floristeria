@@ -150,60 +150,161 @@ botonesAgregar.forEach(boton => {
 
     boton.addEventListener("click", () => {
 
+        let id = parseInt(boton.dataset.id);
         let imagen = boton.dataset.imagen;
         let nombre = boton.dataset.nombre;
         let precio = parseFloat(boton.dataset.precio);
 
+        // =========================
+        // 1. Mostrar en carrito UI
+        // =========================
         let div = document.createElement("div");
 
         div.classList.add("item-carrito");
 
+        div.dataset.id = id;
+
         div.innerHTML = `
-    
-    <img src="${imagen}" class="img-carrito">
+            <img src="${imagen}" class="img-carrito">
 
-    <div class="info-item">
-        <p>${nombre}</p>
-        <span>S/. ${precio}</span>
-    </div>
+            <div class="info-item">
+                <p>${nombre}</p>
+                <span>S/. ${precio.toFixed(2)}</span>
+            </div>
 
-    <button class="eliminar-item">✖</button>
-
-`;
+            <button class="eliminar-item">✖</button>
+        `;
 
         contenidoCarrito.appendChild(div);
 
-        cantidad++;
-        total += precio;
+        // =========================
+        // 2. Guardar en Session MVC
+        // =========================
+        fetch('/Home/AgregarCarrito', {
+            method: 'POST',
 
-        contador.textContent = cantidad;
-        document.getElementById("totalCarrito").textContent = total;
+            headers: {
+                'Content-Type': 'application/json'
+            },
 
+            body: JSON.stringify({
+                id: id,
+                nombre: nombre,
+                precio: precio,
+                imagen: imagen
+            })
+        })
 
-        // BOTON ELIMINAR
+            .then(response => response.json())
+
+            .then(data => {
+
+                // Lo que viene del Controller
+                cantidad = data.cantidad;
+                total = data.total;
+
+                contador.textContent = cantidad;
+                document.getElementById("totalCarrito").textContent = total.toFixed(2);
+
+            })
+
+            .catch(error => {
+                console.log("Error:", error);
+            });
+
+        // =========================
+        // 3. Botón eliminar SOLO UI
+        // =========================
         const btnEliminar = div.querySelector(".eliminar-item");
 
         btnEliminar.addEventListener("click", function () {
 
-            div.remove();
+            fetch('/Home/EliminarCarrito', {
 
-            cantidad--;
-            total -= precio;
+                method: 'POST',
 
-            contador.textContent = cantidad;
-            document.getElementById("totalCarrito").textContent = total;
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+
+                body: JSON.stringify({
+                    id: id
+                })
+
+            })
+
+                .then(response => response.json())
+
+                .then(data => {
+
+                    div.remove();
+
+                    cantidad = data.cantidad;
+                    total = data.total;
+
+                    contador.textContent = cantidad;
+
+                    document.getElementById("totalCarrito")
+                        .textContent = total.toFixed(2);
+
+                })
+
+                .catch(error => {
+                    console.log(error);
+                });
+
         });
 
-    });
+    });   // ← cierra boton.addEventListener
 
-});
+});      
 
+
+// =============================
+// Botón comprar
+// =============================
 const btnComprar = document.getElementById("btnComprar");
 
 if (btnComprar) {
     btnComprar.addEventListener("click", function () {
-        alert("Procesando compra...");
+
+        fetch('/Home/FinalizarCompra', {
+
+            method: 'POST',
+
+            headers: {
+                'Content-Type': 'application/json'
+            }
+
+        })
+
+            .then(response => response.json())
+
+            .then(data => {
+
+                if (data.ok) {
+
+                    alert("Compra registrada correctamente");
+
+                    contenidoCarrito.innerHTML = "";
+
+                    contador.textContent = "0";
+
+                    document.getElementById("totalCarrito").textContent = "0.00";
+                }
+                else {
+
+                    alert(data.mensaje);
+                }
+
+            })
+
+            .catch(error => {
+                console.log(error);
+            });
+
     });
 }
+
 
 //alert("JS cargado");

@@ -1,0 +1,16 @@
+﻿@model List<WebApplicationfloristeria.Models.CarritoItem>
+
+@foreach (var item in Model)
+{
+    <div>
+
+        <img src="@Url.Content(item.Imagen)" width="60">
+
+        <p>@item.NombreProducto</p>
+
+        <p>@item.Cantidad</p>
+
+        <p>S/. @item.SubTotal</p>
+
+    </div>
+}
