@@ -55,7 +55,7 @@ namespace WebApplicationfloristeria.Data
             using (SqlConnection cnx = new SqlConnection(CadenaCnx))
             {
                 cnx.Open();
-                using (SqlCommand cmd = cnx.CreateCommand()) 
+                using (SqlCommand cmd = cnx.CreateCommand())
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.CommandText = "USP_Validar_Usuario";
@@ -85,7 +85,7 @@ namespace WebApplicationfloristeria.Data
                     }
                 }
             }
-                return usuario;
+            return usuario;
         }
     }
 }

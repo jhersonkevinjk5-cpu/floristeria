@@ -1,0 +1,55 @@
+﻿@model WebApplicationfloristeria.Models.Categoria
+
+@{
+    ViewBag.Title = "Modificar Categoría";
+}
+
+<div class="container mt-4">
+    <h2>Modificar Categoría</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.IdCategoria)
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Nombre Categoría</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NombreCategoria, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NombreCategoria, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Descripción</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Estado Activo</label>
+                <div class="col-md-10">
+                    <div class="checkbox" style="padding-left: 20px;">
+                        @Html.EditorFor(model => model.Estado)
+                        @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-warning">
+                        <i class="glyphicon glyphicon-refresh"></i> Actualizar
+                    </button>
+                    <a href="@Url.Action("Index")" class="btn btn-default">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

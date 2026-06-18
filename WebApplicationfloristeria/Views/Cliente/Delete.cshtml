@@ -1,0 +1,39 @@
+﻿@model WebApplicationfloristeria.Models.Cliente
+
+@{
+    ViewBag.Title = "Eliminar Cliente";
+}
+
+<div class="container mt-4">
+    <h2 class="text-danger">¿Está seguro de que desea eliminar este cliente?</h2>
+    <hr />
+
+    <div class="well">
+        <dl class="dl-horizontal">
+            <dt>Cliente:</dt>
+            <dd>@Model.Nombres @Model.Apellidos</dd>
+
+            <dt>Teléfono:</dt>
+            <dd>@Model.Telefono</dd>
+
+            <dt>Correo Electrónico:</dt>
+            <dd>@Model.Correo</dd>
+
+            <dt>Dirección:</dt>
+            <dd>@Model.Direccion</dd>
+        </dl>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.IdCliente)
+
+        <div class="form-actions no-color">
+            <button type="submit" class="btn btn-danger">
+                <i class="glyphicon glyphicon-trash"></i> Confirmar Eliminación
+            </button> |
+            <a href="@Url.Action("Index")" class="btn btn-default">Volver al Listado</a>
+        </div>
+    }
+</div>

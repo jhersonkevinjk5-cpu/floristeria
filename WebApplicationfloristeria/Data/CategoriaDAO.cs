@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -12,29 +13,74 @@ namespace WebApplicationfloristeria.Data
     public class CategoriaDAO : ICategoria
     {
         private string CadenaCnx;
-        public CategoriaDAO()
 
+        public CategoriaDAO()
         {
             CadenaCnx = ConfigurationManager.ConnectionStrings["FloristeriaConnection"].ConnectionString;
         }
+
         public bool Actualizar(int id)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public bool Actualizar(Categoria entidad)
         {
-            throw new NotImplementedException();
+            SqlConnection cnx = new SqlConnection(CadenaCnx);
+            cnx.Open();
+            SqlCommand cmd = cnx.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "UPDATE Categoria SET NombreCategoria = @nombre, Descripcion = @descripcion, Estado = @estado WHERE IdCategoria = @id";
+
+            cmd.Parameters.AddWithValue("@nombre", entidad.NombreCategoria);
+            cmd.Parameters.AddWithValue("@descripcion", entidad.Descripcion);
+            cmd.Parameters.AddWithValue("@estado", entidad.Estado);
+            cmd.Parameters.AddWithValue("@id", entidad.IdCategoria);
+
+            int filasAfectadas = cmd.ExecuteNonQuery();
+            cnx.Close();
+
+            return filasAfectadas > 0;
         }
 
         public Categoria BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            Categoria categoria = null;
+            SqlConnection cnx = new SqlConnection(CadenaCnx);
+            cnx.Open();
+            SqlCommand cmd = cnx.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT * FROM Categoria WHERE IdCategoria = @id";
+            cmd.Parameters.AddWithValue("@id", id);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+
+                categoria = new Categoria();
+                categoria.IdCategoria = Convert.ToInt32(dr["IdCategoria"]);
+                categoria.NombreCategoria = dr["NombreCategoria"].ToString();
+                categoria.Descripcion = dr["Descripcion"].ToString();
+                categoria.Estado = Convert.ToBoolean(dr["Estado"]);
+            }
+            dr.Close();
+            cnx.Close();
+            return categoria;
         }
 
         public bool Eliminar(int id)
         {
-            throw new NotImplementedException();
+            SqlConnection cnx = new SqlConnection(CadenaCnx);
+            cnx.Open();
+            SqlCommand cmd = cnx.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "DELETE FROM Categoria WHERE IdCategoria = @id";
+            cmd.Parameters.AddWithValue("@id", id);
+
+            int filasAfectadas = cmd.ExecuteNonQuery();
+            cnx.Close();
+
+            return filasAfectadas > 0;
         }
 
         public List<Categoria> ListarTodo()
@@ -44,24 +90,40 @@ namespace WebApplicationfloristeria.Data
             SqlConnection cnx = new SqlConnection(CadenaCnx);
             cnx.Open();
             SqlCommand cmd = cnx.CreateCommand();
-            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandType = CommandType.Text;
             cmd.CommandText = "SELECT * FROM Categoria";
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                Categoria categoria = new Categoria(
-                    Convert.ToInt32(dr["IdCategoria"]),
-                    dr["NombreCategoria"].ToString()
-                    );
-                categorias.Add( categoria );
+                Categoria categoria = new Categoria();
+                categoria.IdCategoria = Convert.ToInt32(dr["IdCategoria"]);
+                categoria.NombreCategoria = dr["NombreCategoria"].ToString();
+                categoria.Descripcion = dr["Descripcion"].ToString();
+                categoria.Estado = Convert.ToBoolean(dr["Estado"]);
+
+                categorias.Add(categoria);
             }
-            dr.Close(); cnx.Close();
+            dr.Close();
+            cnx.Close();
             return categorias;
         }
 
         public int Registrar(Categoria entidad)
         {
-            throw new NotImplementedException();
+            SqlConnection cnx = new SqlConnection(CadenaCnx);
+            cnx.Open();
+            SqlCommand cmd = cnx.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "INSERT INTO Categoria (NombreCategoria, Descripcion, Estado) VALUES (@nombre, @descripcion, @estado)";
+
+            cmd.Parameters.AddWithValue("@nombre", entidad.NombreCategoria);
+            cmd.Parameters.AddWithValue("@descripcion", entidad.Descripcion);
+            cmd.Parameters.AddWithValue("@estado", entidad.Estado);
+
+            int filasAfectadas = cmd.ExecuteNonQuery();
+            cnx.Close();
+
+            return filasAfectadas;
         }
     }
 }

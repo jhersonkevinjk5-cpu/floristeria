@@ -206,4 +206,4 @@ if (btnComprar) {
     });
 }
 
-alert("JS cargado");
+//alert("JS cargado");

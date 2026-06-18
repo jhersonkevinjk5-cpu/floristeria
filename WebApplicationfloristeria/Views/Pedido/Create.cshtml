@@ -1,0 +1,129 @@
+﻿@model WebApplicationfloristeria.Models.Pedido
+
+@{
+    ViewBag.Title = "Nueva Venta - Florería";
+    var carrito = (List<WebApplicationfloristeria.Models.DetallePedido>)Session["Carrito"] ?? new List<WebApplicationfloristeria.Models.DetallePedido>();
+}
+
+<div class="container mt-4">
+    <h2>Registrar Nuevo Pedido</h2>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading"><strong>Añadir Flores / Ramos</strong></div>
+                <div class="panel-body">
+                    @using (Html.BeginForm("AgregarProducto", "Pedido", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <label>Seleccionar Producto:</label>
+                            @Html.DropDownList("idProducto", (SelectList)ViewBag.Productos, "-- Seleccione --", new { @class = "form-control", required = "required" })
+                        </div>
+                        <div class="form-group">
+                            <label>Precio Unitario:</label>
+                            <input type="number" step="0.01" name="precioUnitario" class="form-control" required min="0.1" />
+                        </div>
+                        <div class="form-group">
+                            <label>Cantidad:</label>
+                            <input type="number" name="cantidad" class="form-control" value="1" required min="1" />
+                        </div>
+                        <button type="submit" class="btn btn-info btn-block">
+                            <i class="glyphicon glyphicon-plus"></i> Añadir al Carrito
+                        </button>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            @using (Html.BeginForm("Create", "Pedido", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="panel panel-default">
+                    <div class="panel-heading"><strong>Datos del Comprobante y Despacho</strong></div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-6 field-height">
+                                <label>Cliente Comprador:</label>
+                                @Html.DropDownListFor(model => model.IdCliente, (SelectList)ViewBag.Clientes, "-- Seleccione Cliente --", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.IdCliente, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6 field-height">
+                                <label>Fecha programada de Entrega:</label>
+                                @Html.TextBoxFor(model => model.FechaEntrega, new { @class = "form-control", type = "date" })
+                                @Html.ValidationMessageFor(model => model.FechaEntrega, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label>Dirección exacta de Entrega:</label>
+                            @Html.EditorFor(model => model.DireccionEntrega, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DireccionEntrega, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Dedicatoria de la Tarjeta (Opcional):</label>
+                            @Html.TextAreaFor(model => model.Dedicatoria, new { @class = "form-control", rows = "2" })
+                        </div>
+                    </div>
+                </div>
+
+                <table class="table table-bordered table-striped mt-3">
+                    <thead>
+                        <tr class="active">
+                            <th>Código ID Producto</th>
+                            <th>Cantidad</th>
+                            <th>Precio Unitario</th>
+                            <th>Importe</th>
+                            <th class="text-center">Quitar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (!carrito.Any())
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center text-muted">No has añadido productos al pedido todavía.</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            foreach (var item in carrito)
+                            {
+                                <tr>
+                                    <td>@item.IdProducto</td>
+                                    <td>@item.Cantidad</td>
+                                    <td>S/. @item.PrecioUnitario.ToString("F2")</td>
+                                    <td>S/. @item.Importe.ToString("F2")</td>
+                                    <td class="text-center">
+                                        <a href="@Url.Action("EliminarProducto", "Pedido", new { idProducto = item.IdProducto })" class="btn btn-danger btn-xs">
+                                            <i class="glyphicon glyphicon-remove"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+
+                <div class="row text-right">
+                    <div class="col-md-offset-8 col-md-4">
+                        <p>Sub Total: <strong>S/. @ViewBag.SubTotal.ToString("F2")</strong></p>
+                        <p>IGV (18%): <strong>S/. @ViewBag.IGV.ToString("F2")</strong></p>
+                        <h3>Total a Pagar: <span class="text-success">S/. @ViewBag.Total.ToString("F2")</span></h3>
+                    </div>
+                </div>
+
+                <hr />
+                <div class="form-group text-right">
+                    <a href="@Url.Action("Index")" class="btn btn-default">Cancelar</a>
+                    <button type="submit" class="btn btn-success btn-lg">
+                        <i class="glyphicon glyphicon-floppy-saved"></i> Procesar y Guardar Pedido
+                    </button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

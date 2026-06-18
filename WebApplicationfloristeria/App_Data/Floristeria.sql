@@ -152,7 +152,7 @@ INSERT INTO EstadoPedido VALUES ('Pendiente'),('En Ruta'),('Entregado');
 INSERT INTO MetodoPago VALUES ('Yape'),('Plin'),('Efectivo'),('Transferencia'),('Tarjeta');
 
 INSERT INTO Usuario(Nombres,Apellidos,Correo,clave,IdRol,Estado)
-VALUES('Admin','Sistema','admin@floreria.com','123456',1,1);
+VALUES('Admin','Sistema','admin@floreria.com','123456',1,1); 
 
 INSERT INTO Categoria(NombreCategoria,Descripcion,Estado)
 VALUES

@@ -9,6 +9,6 @@ namespace WebApplicationfloristeria.Data.Interfaces
 {
     internal interface ICliente : ICRUD<Cliente , int>
     {
-        Cliente Validar(string nombre, string Clave);
+        Cliente Validar(string correo, string nombre);
     }
 }

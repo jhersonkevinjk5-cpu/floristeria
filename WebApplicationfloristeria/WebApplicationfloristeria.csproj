@@ -121,15 +121,20 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\CategoriaController.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PedidoController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
     <Compile Include="Data\CategoriaDAO.cs" />
     <Compile Include="Data\ClienteDAO.cs" />
     <Compile Include="Data\Interfaces\ICategoria.cs" />
     <Compile Include="Data\Interfaces\ICliente.cs" />
     <Compile Include="Data\Interfaces\ICRUD.cs" />
+    <Compile Include="Data\Interfaces\IPedido.cs" />
     <Compile Include="Data\Interfaces\IProducto.cs" />
     <Compile Include="Data\Interfaces\IUsuario.cs" />
+    <Compile Include="Data\PedidoDAO.cs" />
     <Compile Include="Data\ProductoDAO.cs" />
     <Compile Include="Data\UsuarioDAO.cs" />
     <Compile Include="Filtros\AuthFilter.cs" />
@@ -158,12 +163,14 @@
     <Content Include="Contenido\CSS\normalize.css" />
     <Content Include="Contenido\JS\app.js" />
     <Content Include="Contenido\CSS\site_Clients.css" />
+    <Content Include="Contenido\JS\login.js" />
     <Content Include="Contenido\Multimedia\IMG\gardenias.png" />
     <Content Include="Contenido\Multimedia\IMG\icon.png" />
     <Content Include="Contenido\Multimedia\IMG\tulipanes.png" />
     <Content Include="Contenido\Multimedia\Video\arreglo-floral.mp4" />
     <Content Include="Contenido\Multimedia\Video\bg_video.mp4" />
     <Content Include="Contenido\Multimedia\Video\florista.mp4" />
+    <Content Include="Contenido\Multimedia\Video\fondo.mp4" />
     <Content Include="Contenido\site.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -191,6 +198,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Contenido\Multimedia\IMG\separador.png" />
+    <Content Include="Contenido\Models3D\flor.glb" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -223,10 +231,19 @@
     <Content Include="Views\Producto\Create.cshtml" />
     <Content Include="Views\Shared\_Layout - Client.cshtml" />
     <Content Include="Views\Home\FloristeríaClient.cshtml" />
+    <Content Include="Views\Categoria\Create.cshtml" />
+    <Content Include="Views\Categoria\Delete.cshtml" />
+    <Content Include="Views\Categoria\Edit.cshtml" />
+    <Content Include="Views\Categoria\Index.cshtml" />
+    <Content Include="Views\Cliente\Create.cshtml" />
+    <Content Include="Views\Cliente\Delete.cshtml" />
+    <Content Include="Views\Cliente\Edit.cshtml" />
+    <Content Include="Views\Cliente\Index.cshtml" />
+    <Content Include="Views\Pedido\Create.cshtml" />
+    <Content Include="Views\Pedido\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Contenido\Multimedia\Productos\" />
-    <Folder Include="Views\Floristería\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

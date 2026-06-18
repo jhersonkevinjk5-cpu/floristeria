@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 using WebApplicationfloristeria.Data;
 using WebApplicationfloristeria.Data.Interfaces;
 using WebApplicationfloristeria.Models;
@@ -27,30 +29,54 @@ namespace WebApplicationfloristeria.Controllers
         [HttpPost]
         public ActionResult Login(FormCollection form)
         {
-            string correo = form["usuarioNombre"];
-            string clave = form["contraseña"];
-
-
-            Usuario usuario = usuarioDAO.Validar(correo, clave);
-
-            if (usuario != null)
+            string tipoLogin = form["tipoLogin"];
+            // =========================
+            // LOGIN USUARIO
+            // =========================
+            if (tipoLogin == "usuario")
             {
-                Session["usuario"] = usuario;
+                string correo = form["correoUsuario"];
+                string clave = form["clave"];
 
-                return RedirectToAction("Index", "Producto");
+                if (!string.IsNullOrEmpty(correo) && !string.IsNullOrEmpty(clave))
+                {
+                    Usuario usuario = usuarioDAO.Validar(correo, clave);
+
+                    if (usuario != null)
+                    {
+                        Session["usuario"] = usuario;
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
             }
 
-            Cliente cliente = clienteDAO.Validar(correo, clave);
-
-            if (cliente != null)
+            // =========================
+            // LOGIN CLIENTE
+            // =========================
+            else if (tipoLogin == "cliente")
             {
-                Session["cliente"] = cliente;
+                string nombre = form["nombreCliente"];
+                string correo = form["correoCliente"];
 
-                return RedirectToAction("FloristeríaClient", "Home");
+                if (!string.IsNullOrEmpty(nombre) && !string.IsNullOrEmpty(correo))
+                {
+                    Cliente cliente = clienteDAO.Validar(correo, nombre);
+
+                    if (cliente != null)
+                    {
+                        Session["cliente"] = cliente;
+                        return RedirectToAction("FloristeríaClient", "Home");
+                    }
+                }
             }
 
-            ViewBag.Mensaje = "Usuario o contraseña incorrectos";
-
+            // =========================
+            // ERROR GENERAL
+            // =========================
+            ViewBag.Mensaje = "Datos incorrectos";
+            System.Diagnostics.Debug.WriteLine("TIPO: " + tipoLogin);
+            System.Diagnostics.Debug.WriteLine("NOMBRE: " + form["nombreCliente"]);
+            System.Diagnostics.Debug.WriteLine("CORREO: " + form["correoCliente"]);
             return View();
         }
         // GET: Logout

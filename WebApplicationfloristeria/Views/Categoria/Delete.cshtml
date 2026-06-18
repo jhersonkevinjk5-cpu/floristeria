@@ -1,0 +1,41 @@
+﻿@model WebApplicationfloristeria.Models.Categoria
+
+@{
+    ViewBag.Title = "Eliminar Categoría";
+}
+
+<div class="container mt-4">
+    <h2 class="text-danger">¿Está seguro que desea eliminar esta categoría?</h2>
+    <hr />
+
+    <div class="well">
+        <dl class="dl-horizontal">
+            <dt>Nombre Categoría:</dt>
+            <dd>@Model.NombreCategoria</dd>
+
+            <dt>Descripción:</dt>
+            <dd>@Model.Descripcion</dd>
+
+            <dt>Estado:</dt>
+            <dd>
+                @if (Model.Estado)
+                {<text>Activo</text> }
+            else
+            { <text>Inactivo</text>}
+            </dd>
+        </dl>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.IdCategoria)
+
+        <div class="form-actions no-color">
+            <button type="submit" class="btn btn-danger">
+                <i class="glyphicon glyphicon-trash"></i> Confirmar Eliminación
+            </button> |
+            <a href="@Url.Action("Index")" class="btn btn-default">Cancelar y Volver</a>
+        </div>
+    }
+</div>
